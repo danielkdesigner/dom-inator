@@ -56,7 +56,7 @@ dom("#mama").prependChild(".first-born");
 ### appendChild(elemToAppend)
 Add a child element as the last child of your selected elements
 ```
-dom("#mama").prependChild(".the-baby");
+dom("#mama").appendChild(".the-baby");
 ```
 
 ### .style(attr, value)

@@ -75,14 +75,14 @@ DOM.prototype.prependChild = function(elemToPrepend){
 
 /**
  * Append a Child Element
- * @param elemToPrepend
+ * @param elemToAppend
  * @returns {DOM}
  */
-DOM.prototype.appendChild = function(elemToPrepend){
+DOM.prototype.appendChild = function(elemToAppend){
     dom(this.elem).each(function(){
         var parent = this;
-        if( Array.isArray(elemToPrepend) ){
-            dom(elemToPrepend).each(function(){
+        if( Array.isArray(elemToAppend) ){
+            dom(elemToAppend).each(function(){
                 parent.appendChild(this.cloneNode(true));
             });
         }else{
