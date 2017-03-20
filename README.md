@@ -116,8 +116,46 @@ Quickly show an element that's hidden with display none (will use elements initi
 dom(".coming-out").show();
 ```
 
+### .clone()
+Create a deep clone in the virtual dom
+```
+var cloned = dom('.to-clone').clone();
+
+//Then add it in the document where we want it
+dom('.wants-clone-baby').appendChild(cloned);
+```
+
 ### .hide()
 Quickly hide and element by setting display to none
 ```
 dom(".ahhhh").hide();
+```
+
+## Utility
+
+### .each()
+Loop through each element selected to act on it individually
+```
+
+//Loop through all sodas and hide pepsi (you know because we can)
+dom(".soda").each(function(){
+    var currentElem = dom(this);
+    if( currentElem.classList('contains', 'pepsi') ){
+        currentElem.hide();
+    }
+});
+```
+
+### .vanilla()
+Return the selected elements as a vanilla array
+```
+dom('div').vanilla() //returns array of elements
+```
+
+## Tips and Hints
+
+### Chainable
+Chain multiple manipulations onto a single selector for short clean code
+```
+dom('.bruce-banner').classList('add', 'the-hulk').style('background-color', 'green').style('font-weight', 'bold');
 ```

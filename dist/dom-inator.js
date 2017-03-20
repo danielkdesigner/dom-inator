@@ -97,11 +97,6 @@ DOM.prototype.appendChild = function(elemToAppend){
  * @param selector
  * @returns {DOM}
  */
-/**
- * Find all elements in another element
- * @param selector
- * @returns {DOM}
- */
 DOM.prototype.find = function(selector){
     var all_children = [];
 
