@@ -116,6 +116,12 @@ Quickly show an element that's hidden with display none (will use elements initi
 dom(".coming-out").show();
 ```
 
+### .hide()
+Quickly hide and element by setting display to none
+```
+dom(".ahhhh").hide();
+```
+
 ### .clone()
 Create a deep clone in the virtual dom
 ```
@@ -125,11 +131,6 @@ var cloned = dom('.to-clone').clone();
 dom('.wants-clone-baby').appendChild(cloned);
 ```
 
-### .hide()
-Quickly hide and element by setting display to none
-```
-dom(".ahhhh").hide();
-```
 
 ## Utility
 
