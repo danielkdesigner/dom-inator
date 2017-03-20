@@ -47,13 +47,13 @@ dom(".lots-of-me").last(); //Returns only the last element with class of "lots-o
 ## DOM Manipulation
 Making changes to the DOM is simple (and chainable too!).
 
-### prependChild(elemToPrepend)
+### .prependChild(elemToPrepend)
 Add a child element as the first child of your selected elements
 ```
 dom("#mama").prependChild(".first-born");
 ```
 
-### appendChild(elemToAppend)
+### .appendChild(elemToAppend)
 Add a child element as the last child of your selected elements
 ```
 dom("#mama").appendChild(".the-baby");
