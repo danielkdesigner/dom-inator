@@ -20,12 +20,6 @@ dom(".query-selector-here");
 ## Traversing the DOM
 How to move up and down the DOM tree to get the element you're looking for
 
-### .find(selector)
-Find children elements of your selected elements that match a certain query-selector
-```
-dom(".parent").find('.children'); //Selects all elements with class of children in all elements with class of parent
-```
-
 ### .closest(selector)
 Go up the dom tree from selected elements until element matches selector
 ```
@@ -72,9 +66,13 @@ dom(".sky").style("background"); //Returns "blue" or the like
 ### .classList(action, value)
 Add, remove, or check if contains a class
 ```
+//Add class
 dom('.page-header').classList('add', 'sticky');
+
+//Remove Class
 dom('.page-header').classList('remove', 'sticky');
 
+//Check for presence of class
 if(dom('.page-header').classList('contains', 'sticky')){
     console.log('Header is sticky');
 }else{
@@ -95,6 +93,7 @@ dom("#facebook-link").attribute("href");
 ### .html(html)
 Get or set html of selected elements (just like jQuery)
 ```
+//Set html
 dom(".alter-my-html").html("<div>Hello, new html here.</div>");
 
 //Get html (only uses first element of selected for this information if is different between elements)
@@ -102,8 +101,9 @@ dom(".hello").html();
 ```
 
 ### .text(text)
-Get or set html of selected elements (just like jQuery)
+Get or set text of selected elements (just like jQuery)
 ```
+//Set text
 dom(".alter-my-text").text("Hello, new text here.");
 
 //Get text (only uses first element of selected for this information if is different between elements)
