@@ -1,4 +1,4 @@
-# DOM-Inator.js
+# DOM-inator.js
 A super lightweight DOM manipulation library for those who think jQuery is too much. Weighs in at 4kb minified and only 1kb minified and gzipped.
 
 ## Features
