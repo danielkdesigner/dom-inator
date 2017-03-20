@@ -2,10 +2,9 @@
 A super lightweight DOM manipulation library for those who think jQuery is too much. Weighs in at 4kb minified and only 1kb minified and gzipped.
 
 ## Features
-
-    1. *Lightweight* - 4kb minified & 1kb minfied & gzipped
-    2. *Chainable* - Link dom manipulations of the same selector together for cleaner code
-    3. *Perfect Blend of Vanilla JS and jQuery* - uses some of the great features of jQuery for quick coding but implements more vanilla js method names for a better transition to vanilla js (because really vanilla's the best)
+* __Lightweight__ - 4kb minified & 1kb minfied & gzipped
+* __Chainable__ - Link dom manipulations of the same selector together for cleaner code
+* __Perfect Blend of Vanilla JS and jQuery__ - uses some of the great features of jQuery for quick coding but implements more vanilla js method names for a better transition to vanilla js (because really vanilla's the best)
 
 ## Installation
 
