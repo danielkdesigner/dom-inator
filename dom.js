@@ -97,11 +97,17 @@ DOM.prototype.appendChild = function(elemToAppend){
  * @param selector
  * @returns {DOM}
  */
+/**
+ * Find all elements in another element
+ * @param selector
+ * @returns {DOM}
+ */
 DOM.prototype.find = function(selector){
     var all_children = [];
-    this.elem.forEach(function(elem){
-        dom(elem.querySelectorAll(selector)).each(function(){
-            all_children.push(this);
+
+    this.elem.forEach(function(el){
+        [].slice.call(el.querySelectorAll(selector)).forEach(function(e){
+            all_children.push(e);
         });
     });
     this.elem = all_children;
