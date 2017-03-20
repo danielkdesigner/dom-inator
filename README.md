@@ -122,6 +122,16 @@ Quickly hide and element by setting display to none
 dom(".ahhhh").hide();
 ```
 
+### .animateIn(type)
+```
+Example coming soon
+```
+
+### .animateOut(type)
+```
+Example coming soon
+```
+
 ### .clone()
 Create a deep clone in the virtual dom
 ```
