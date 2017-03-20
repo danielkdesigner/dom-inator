@@ -79,14 +79,14 @@ DOM.prototype.prependChild = function(elemToPrepend){
  * @returns {DOM}
  */
 DOM.prototype.appendChild = function(elemToAppend){
-    dom(this.elem).each(function(){
-        var parent = this;
+    this.elem.forEach(function(elem){
+        var parent = elem;
         if( Array.isArray(elemToAppend) ){
             dom(elemToAppend).each(function(){
                 parent.appendChild(this.cloneNode(true));
             });
         }else{
-            parent.appendChild(this.cloneNode(true));
+            parent.appendChild(elemToAppend.cloneNode(true));
         }
     });
     return this;
@@ -99,8 +99,8 @@ DOM.prototype.appendChild = function(elemToAppend){
  */
 DOM.prototype.find = function(selector){
     var all_children = [];
-    dom(this.elem).each(function(el){
-        dom(el.querySelectorAll(selector)).each(function(){
+    this.elem.forEach(function(elem){
+        dom(elem.querySelectorAll(selector)).each(function(){
             all_children.push(this);
         });
     });
