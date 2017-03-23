@@ -59,16 +59,15 @@ DOM.prototype.each = function(callback){
  * @returns {DOM}
  */
 DOM.prototype.prependChild = function(elemToPrepend){
-    dom(this.elem).each(function(){
-        var parent = this;
+    this.elem.forEach(function(elem){
+        var parent = elem;
         if( Array.isArray(elemToPrepend) ){
             dom(elemToPrepend).each(function(){
-                parent.insertBefore( this.cloneNode(true),  parent.firstChild );
+                parent.insertBefore( elem.cloneNode(true),  parent.firstChild );
             });
         }else{
-            parent.insertBefore( elemToPrepend.cloneNode(true),  this.firstChild );
+            parent.insertBefore( elemToPrepend.cloneNode(true),  elem.firstChild );
         }
-
     });
     return this;
 };
@@ -116,10 +115,9 @@ DOM.prototype.find = function(selector){
  */
 DOM.prototype.closest = function (selector){
     var all_closest= [];
-    dom(this.elem).each(function(){
-        var el=this;
-        for ( ; el && el !== document; el = el.parentNode ) {
-            if ( el.matches( selector ) ) all_closest.push(el);
+    this.elem.forEach(function(elem){
+        for ( ; elem && elem !== document; elem = elem.parentNode ) {
+            if ( elem.matches( selector ) ) all_closest.push(elem);
         }
     });
     this.elem = all_closest;
@@ -158,8 +156,8 @@ DOM.prototype.remove = function(){
  */
 DOM.prototype.style = function(attr, value){
     if( !this.undefined(value) ){
-        dom(this.elem).each(function(){
-            this.style[attr] = value;
+        this.elem.forEach(function(elem){
+            elem.style[attr] = value;
         });
         return this;
     }
@@ -199,20 +197,20 @@ DOM.prototype.last = function(){
  */
 DOM.prototype.classList = function(action, value){
     var contains = true;
-    dom(this.elem).each(function(){
+    this.elem.forEach(function(elem){
         if(action === 'contains'){
-            if(!this.classList.contains(value)){
+            if(!elem.classList.contains(value)){
                 contains = false;
             }
         }else if(action === 'add'){
-            this.classList.add(value);
+            elem.classList.add(value);
         }else if(action === 'remove'){
-            this.classList.remove(value);
+            elem.classList.remove(value);
         }else if(action === 'toggle'){
-            if(this.classList.contains(value)){
-                this.classList.remove(value);
+            if(elem.classList.contains(value)){
+                elem.classList.remove(value);
             }else{
-                this.classList.add(value);
+                elem.classList.add(value);
             }
         }
     });
@@ -231,8 +229,8 @@ DOM.prototype.classList = function(action, value){
  */
 DOM.prototype.attribute = function(attr, value){
     if( !this.undefined(value) ){
-        dom(this.elem).each(function(){
-            this.setAttribute(attr, value);
+        this.elem.forEach(function(elem){
+            elem.setAttribute(attr, value);
         });
         return this;
     }
@@ -247,8 +245,8 @@ DOM.prototype.attribute = function(attr, value){
  */
 DOM.prototype.html = function(html){
     if( !this.undefined(html) ){
-        dom(this.elem).each(function(){
-            this.innerHTML = html;
+        this.elem.forEach(function(elem){
+            elem.innerHTML = html;
         });
         return this;
     }
@@ -262,8 +260,8 @@ DOM.prototype.html = function(html){
  */
 DOM.prototype.text = function(text){
     if( !this.undefined(text) ){
-        dom(this.elem).each(function(){
-            this.innerText = text;
+        this.elem.forEach(function(elem){
+            elem.innerText = text;
         });
         return this;
     }
@@ -276,8 +274,8 @@ DOM.prototype.text = function(text){
  */
 DOM.prototype.clone = function(){
     var clones = [];
-    dom(this.elem).each(function(){
-        clones.push(this.cloneNode(true));
+    this.elem.forEach(function(elem){
+        clones.push(elem.cloneNode(true));
     });
     return clones;
 };
@@ -328,12 +326,12 @@ DOM.prototype.hide = function(){
 DOM.prototype.animateIn = function(type){
     var obj = this;
     this.elem.forEach(function(elem){
-        dom(elem).classList("remove", "animated-out");
+        elem.classList.remove('animated-out');
         setTimeout(function(){
             if( obj.undefined(type) || type === 'custom'){
-                dom(elem).classList("remove", "animating-out");
+                elem.classList.remove('animating-out');
             }else{
-                dom(elem).classList("remove", type + "-animating-out");
+                elem.classList.remove(type + "-animating-out");
             }
         }, 1);
 
@@ -353,18 +351,18 @@ DOM.prototype.animateOut = function(type){
         if(duration !== "0s"){
             var time = parseFloat(duration.replace("s", "")) * 1000;
         }else{
-            dom(elem).style("transition-duration", ".4s");
+            elem.style.transitionDuration = ".4s";
             time = 400;
         }
 
         if( obj.undefined(type) || type === 'custom'){
-            dom(elem).classList("add", "animating-out");
+            elem.classList.add('animating-out');
         }else{
-            dom(elem).classList("add", type + "-animating-out");
+            elem.classList.add(type + "-animating-out");
         }
 
         setTimeout(function(){
-            dom(elem).classList("add", "animated-out");
+            elem.classList.add('animated-out');
         }, time);
     });
 
