@@ -135,13 +135,43 @@ dom(".ahhhh").hide();
 ```
 
 ### .animateIn(type)
+Both animate in and animate out read the transition duration from your css stylesheets and sets a timeout to set the element to display none just as your transition ends. This means it will be removed from the document flow but it will still have the chance to animate
 ```
-Example coming soon
+//style.css
+.box{
+    transition:.4s all;
+ }
+ .box.animating-out{
+     opacity:0;
+     transform:scaleY(0);
+     transform-origin:top;
+ }
+
+ //script.js
+ dom('.box').animateIn();
+
+ //If you want just a plane ol' fade in you don't have to set that in your styles just use the following
+ dom('.box').animateIn('fade');
 ```
 
 ### .animateOut(type)
+Both animate in and animate out read the transition duration from your css stylesheets and sets a timeout to set the element to display none just as your transition ends. This means it will be removed from the document flow but it will still have the chance to animate
 ```
-Example coming soon
+//style.css (if you already did this in the animate in step, you don't have to do it again)
+.box{
+    transition:.4s all;
+ }
+ .box.animating-out{
+     opacity:0;
+     transform:scaleY(0);
+     transform-origin:top;
+ }
+
+ //script.js
+ dom('.box').animateOut();
+
+ //If you want just a plane ol' fade in you don't have to set that in your styles just use the following
+ dom('.box').animateOut('fade');
 ```
 
 ### .clone()
