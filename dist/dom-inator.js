@@ -36,7 +36,9 @@ function DOM(elem_or_selector){
         this.elem = this.querySelectorAllToArray(elem_or_selector);
     } else if( Array.isArray(elem_or_selector) ){
         this.elem = elem_or_selector;
-    }else{
+    }else if( typeof elem_or_selector === 'object' && elem_or_selector.toString() === '[object DOM]' ){
+        this.elem = elem_or_selector.elem;
+    } else{
         this.elem =  [elem_or_selector]
     }
 }
@@ -59,14 +61,17 @@ DOM.prototype.each = function(callback){
  * @returns {DOM}
  */
 DOM.prototype.prependChild = function(elemToPrepend){
-    this.elem.forEach(function(elem){
-        var parent = elem;
-        if( Array.isArray(elemToPrepend) ){
+    this.elem.forEach(function(parent){
+
+        //If is a vanilla js element
+        if( elemToPrepend.cloneNode ){
+            parent.insertBefore( elemToPrepend.cloneNode(true),  parent.firstChild );
+
+            //If its an array or a DOM object
+        } else{
             dom(elemToPrepend).each(function(){
-                parent.insertBefore( elem.cloneNode(true),  parent.firstChild );
+                parent.insertBefore( this.cloneNode(true),  parent.firstChild );
             });
-        }else{
-            parent.insertBefore( elemToPrepend.cloneNode(true),  elem.firstChild );
         }
     });
     return this;
@@ -78,14 +83,17 @@ DOM.prototype.prependChild = function(elemToPrepend){
  * @returns {DOM}
  */
 DOM.prototype.appendChild = function(elemToAppend){
-    this.elem.forEach(function(elem){
-        var parent = elem;
-        if( Array.isArray(elemToAppend) ){
+    this.elem.forEach(function(parent){
+
+        //If it's a vanilla js element
+        if( elemToAppend.appendChild && elemToAppend.toString() !== '[object DOM]'){
+            parent.appendChild(elemToAppend.cloneNode(true));
+
+            //If it's an array or a DOM object
+        } else{
             dom(elemToAppend).each(function(){
                 parent.appendChild(this.cloneNode(true));
             });
-        }else{
-            parent.appendChild(elemToAppend.cloneNode(true));
         }
     });
     return this;
@@ -278,6 +286,16 @@ DOM.prototype.clone = function(){
         clones.push(elem.cloneNode(true));
     });
     return clones;
+};
+
+DOM.prototype.create = function(selector){
+    var split_selector = selector.split('.');
+    var tag = split_selector[0];
+    var class_name = split_selector[1];
+    var elem = document.createElement(tag.toUpperCase());
+    elem.classList.add(class_name);
+    this.elem = [elem];
+    return this;
 };
 
 /**
