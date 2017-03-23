@@ -5,6 +5,7 @@ A super lightweight DOM manipulation library for those who think jQuery is too m
 * __Lightweight__ - 5kb minified & 1kb minfied & gzipped
 * __Chainable__ - Link dom manipulations of the same selector together for cleaner code
 * __Perfect Blend of Vanilla JS and jQuery__ - uses some of the great features of jQuery for quick coding but implements more vanilla js method names for a better transition to vanilla js (because really vanilla's the best)
+* __Supported In__ IE 9+, Chrome, Firefox, Safari
 
 ## Installation
 
