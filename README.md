@@ -212,3 +212,21 @@ Chain multiple manipulations onto a single selector for short clean code
 ```
 dom('.bruce-banner').classList('add', 'the-hulk').style('background-color', 'green').style('font-weight', 'bold');
 ```
+
+### $ Aliasing
+If you'd like to shorten the 'dom' keyword to '$' then you can pass the dom function into a self invoking anonymous function like below. This has the nice side effect of keeping all code in the anonymous function out of the global scope and keeps it from conflicting with other code
+```
+(function($){
+    'use strict';
+    $('h3').style('background', 'green');
+})(dom);
+```
+
+If you really need the '$' alias at the global scope for some reason you can do the below (just keep in mind if you are using any other library that's using the $ alias this might cause issues):
+```
+function $(selector){
+    return dom(selector);
+}
+$('h3').style('background', 'green');
+$('h1').classList('add', 'new-class');
+```
