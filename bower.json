@@ -1,0 +1,25 @@
+{
+  "name": "dom-inator",
+  "homepage": "https://github.com/danielkdesigner/dom-inator",
+  "authors": [
+    "Daniel Kelly <danielkdesigner@gmail.com>"
+  ],
+  "description": "A small but powerful DOM manipulation library. It's a good subsitute for jQuery without the overhead.",
+  "main": "",
+  "keywords": [
+    "DOM",
+    "DOM manipulation",
+    "jQuery alternative",
+    "dominator",
+    "DOMinator",
+    "dom-inator"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
