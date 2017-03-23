@@ -289,11 +289,17 @@ DOM.prototype.clone = function(){
 };
 
 DOM.prototype.create = function(selector){
-    var split_selector = selector.split('.');
-    var tag = split_selector[0];
-    var class_name = split_selector[1];
-    var elem = document.createElement(tag.toUpperCase());
-    elem.classList.add(class_name);
+    var parsed = this.parseSelector(selector);
+    var elem = document.createElement(parsed.tag.toUpperCase());
+
+    parsed.classes.forEach(function(class_name){
+        elem.classList.add(class_name.replace('.', ''));
+    });
+
+    if(parsed.id){
+        elem.id = parsed.id.replace('#', '');
+    }
+
     this.elem = [elem];
     return this;
 };
@@ -385,6 +391,17 @@ DOM.prototype.animateOut = function(type){
     });
 
     return this;
+};
+
+DOM.prototype.parseSelector = function(selector){
+    var tag = selector.match(/^[a-z][1-6]+/i);
+    tag = tag ? tag[0] : 'div';
+    var id = selector.match(/#([a-z]+[a-z0-9-]*)/gi);
+    id = id ? id[0] : false;
+    var classes = selector.match(/\.([a-z]+[a-z0-9-]*)/gi);
+    classes = classes ? classes : false;
+
+    return { tag : tag, id :  id,  classes : classes };
 };
 
 /**
