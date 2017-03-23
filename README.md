@@ -8,12 +8,13 @@ A super lightweight DOM manipulation library for those who think jQuery is too m
 
 ## Installation
 
-   #### 1a. Clone from Github -
+   #### 1a. Clone from Github
    ```
    git clone https://github.com/danielkdesigner/dom-inator.git
    ```
+
    #### OR
-   1b. Install With Bower
+   #### 1b. Install With Bower
    ```
    bower install dom-inator
    ```
