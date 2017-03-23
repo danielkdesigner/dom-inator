@@ -127,6 +127,19 @@ DOM.prototype.closest = function (selector){
 };
 
 /**
+ * Get the Immediate Parent of Selected Elements
+ * @returns {DOM}
+ */
+DOM.prototype.parent = function(){
+    var all_parents = [];
+    this.elem.forEach(function(elem){
+        all_parents.push(elem.parentNode);
+    });
+    this.elem = all_parents;
+    return this;
+};
+
+/**
  * Get and Set style
  * @param attr
  * @param value
