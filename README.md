@@ -206,6 +206,22 @@ var cloned = dom('.to-clone').clone();
 dom('.wants-clone-baby').appendChild(cloned);
 ```
 
+## Events
+
+### .addEventListener(event, delegated_elem_or_callback, callback)
+Add an event listener to an element or use event delegation in cases where elements may or may not actually exist on the page yet (in cases of delegation, you would select an element that definitely exists with dom() and then pass the selector of the actual element you want to listen to as the second param of this method )
+
+```
+//regular event (no delegation)
+dom('.box').addEventListener('click', function(){
+    console.log('box clicked')
+});
+
+//Event Delegation
+dom('.permanent').addEventListener('click', '.probably-dynamic', function(){
+    console.log('probably dynamic clicked')
+});
+```
 
 ## Utility
 
