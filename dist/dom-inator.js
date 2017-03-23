@@ -140,6 +140,17 @@ DOM.prototype.parent = function(){
 };
 
 /**
+ * Remove element from dom
+ * @returns {DOM}
+ */
+DOM.prototype.remove = function(){
+    this.elem.forEach(function(elem){
+        elem.parentNode.removeChild(elem);
+    });
+    return this;
+};
+
+/**
  * Get and Set style
  * @param attr
  * @param value
