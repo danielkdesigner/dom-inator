@@ -1,8 +1,8 @@
 # DOM-inator.js
-A super lightweight DOM manipulation library for those who think jQuery is too much. Weighs in at 4kb minified and only 1kb minified and gzipped.
+A super lightweight DOM manipulation library for those who think jQuery is too much. Weighs in at 5kb minified and only 1kb minified and gzipped.
 
 ## Features
-* __Lightweight__ - 4kb minified & 1kb minfied & gzipped
+* __Lightweight__ - 5kb minified & 1kb minfied & gzipped
 * __Chainable__ - Link dom manipulations of the same selector together for cleaner code
 * __Perfect Blend of Vanilla JS and jQuery__ - uses some of the great features of jQuery for quick coding but implements more vanilla js method names for a better transition to vanilla js (because really vanilla's the best)
 
