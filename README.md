@@ -26,6 +26,12 @@ Go up the dom tree from selected elements until element matches selector
 dom(".grandchild").closest(".great-grandpa") //Moves up through DOM tree until element with class of great-grandpa is found
 ```
 
+### .parent()
+Get the immediate parent of the selected elements
+```
+dom('.find-my-mommy').parent();
+```
+
 ### .first()
 Narrows selection down to first matching element
 ```
@@ -108,6 +114,12 @@ dom(".alter-my-text").text("Hello, new text here.");
 
 //Get text (only uses first element of selected for this information if is different between elements)
 dom(".hello").text();
+```
+
+### .remove()
+Completely remove selected elements from DOM
+```
+dom('.she-gone').remove();
 ```
 
 ### .show()
