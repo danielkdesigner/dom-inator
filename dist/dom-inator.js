@@ -31,6 +31,7 @@ function DOM(elem_or_selector){
      * elem
      * initial_display
      */
+    this.selector = elem_or_selector;
 
     if(typeof elem_or_selector === "string"){
         this.elem = this.querySelectorAllToArray(elem_or_selector);
@@ -288,13 +289,15 @@ DOM.prototype.clone = function(){
     return clones;
 };
 
-DOM.prototype.create = function(selector){
-    var parsed = this.parseSelector(selector);
+DOM.prototype.create = function(){
+    var parsed = this.parseSelector(this.selector);
     var elem = document.createElement(parsed.tag.toUpperCase());
 
-    parsed.classes.forEach(function(class_name){
-        elem.classList.add(class_name.replace('.', ''));
-    });
+    if(parsed.classes){
+        parsed.classes.forEach(function(class_name){
+            elem.classList.add(class_name.replace('.', ''));
+        });
+    }
 
     if(parsed.id){
         elem.id = parsed.id.replace('#', '');
