@@ -116,6 +116,12 @@ dom(".alter-my-text").text("Hello, new text here.");
 dom(".hello").text();
 ```
 
+### .create()
+Create a new element to be added the dom at the time of your choosing. Create the elements tag, classes, and/or id by using a query selector
+```
+dom('h3.test').create().text('Hello World').style('background', 'green')
+```
+
 ### .remove()
 Completely remove selected elements from DOM
 ```
