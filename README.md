@@ -223,6 +223,39 @@ dom('.permanent').addEventListener('click', '.probably-dynamic', function(){
 });
 ```
 
+### e.preventDefault()
+Prevent default action of event
+
+```
+dom('form').addEventListener('submit', function(e){
+    e.preventDefault();
+    console.log('form not submitted. do with it what you will');
+});
+```
+
+### e.stopPropagation
+Prevent event from bubbling up
+
+```
+dom('.inner-element').addEventListener('click', function(e){
+    e.stopPropagation();
+    console.log('any event on parents of this element will not fire');
+});
+```
+
+### e.stopImmediatePropagation
+Prevent an other events called on selected element after this event from occuring
+```
+dom('.common-element').addEventListener('click', function(e){
+    e.stopImmediatePropagation();
+    console.log('only this will log');
+});
+
+dom('.common-element').addEventListener('click', function(e){
+    console.log('this will never happen');
+});
+```
+
 ## Utility
 
 ### .each()
