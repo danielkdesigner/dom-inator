@@ -308,6 +308,31 @@ DOM.prototype.create = function(){
 };
 
 /**
+ * Add Event Listener
+ * @param event
+ * @param delegated_elem_or_callback
+ * @param callback
+ */
+DOM.prototype.addEventListener = function(event, delegated_elem_or_callback, callback){
+    var the_callback = typeof delegated_elem_or_callback === 'function' ? delegated_elem_or_callback : callback;
+    this.elem.forEach(function(elem){
+
+        //If NO event delegation is being used
+        if( the_callback === delegated_elem_or_callback){
+            elem.addEventListener(event, the_callback);
+
+            //If Event delegation is being used
+        }else{
+            elem.addEventListener(event, function(e){
+                if(e.target.matches(delegated_elem_or_callback)) {
+                    callback(e);
+                }
+            });
+        }
+    });
+};
+
+/**
  * Get Vanilla JS Elements as Array or Single Node (if just one)
  * @returns {Array.<T>|*|Array}
  */
