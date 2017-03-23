@@ -17,6 +17,7 @@ A super lightweight DOM manipulation library for those who think jQuery is too m
    ```
    bower install dom-inator
    ```
+
     2. Bring Script onto Page
 
    ```
