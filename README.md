@@ -12,12 +12,13 @@ A super lightweight DOM manipulation library for those who think jQuery is too m
    ```
    git clone https://github.com/danielkdesigner/dom-inator.git
    ```
-   OR
+   #### OR
    1b. Install With Bower
    ```
    bower install dom-inator
    ```
     2. Bring Script onto Page
+
    ```
    //Add this script tag just before all your other js (hopefully as close to the closing body tag as possible)
    //or concat it using your favorite task runner
