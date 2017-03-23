@@ -9,7 +9,12 @@ A super lightweight DOM manipulation library for those who think jQuery is too m
 ## Installation
 
    1. Clone from Github
-   2. Bower coming soon
+   2. Install With Bower - bower install dom-inator
+   ```
+   //Add this script tag just before all your other js (hopefully as close to the closing body tag as possible)
+   //or concat it using your favorite task runner
+   <script src='/bower_components/dom-inator/dist/dom-inator.min'></script>
+   ```
 
 ## Selecting Elements
 All selection is done through css-like query selectors. All selections are treated as a single unit like in jQuery so when you manipulate 1 you manipulate them all (just like in jQuery) (no looping! Hooray!)
