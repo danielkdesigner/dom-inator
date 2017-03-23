@@ -13,6 +13,7 @@ A super lightweight DOM manipulation library for those who think jQuery is too m
    ```
    //Add this script tag just before all your other js (hopefully as close to the closing body tag as possible)
    //or concat it using your favorite task runner
+
    <script src='/bower_components/dom-inator/dist/dom-inator.min'></script>
    ```
 
